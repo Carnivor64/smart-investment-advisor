@@ -77,8 +77,12 @@ def register_user(username: str, password: str, email: str):
         return False, "err_email_invalid"
 
     sb = get_supabase()
-    existing = sb.table("users").select("username").eq("username", username).execute()
-    if existing.data:
+ response = sb.table("users").select("username").eq("username", username).execute()
+    existing_data = response.data
+except Exception:
+    existing_data = []   
+
+    if existing_data:
         return False, "err_username_taken"
 
     pwd_hash, salt = hash_password(password)
