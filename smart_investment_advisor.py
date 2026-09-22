@@ -48,11 +48,11 @@ st.set_page_config(page_title="Smart Investment Advisor", page_icon="📈", layo
 # جداول users وwatchlist يجب إنشاؤها مسبقاً في مشروع Supabase (انظر README.md
 # لنص SQL الجاهز)، وربط بيانات الاتصال عبر Secrets كما هو موضح في README.md.
 @st.cache_resource
-def get_supabase() -> Client:
-    url = st.secrets["supabase"]["url"]
-    key = st.secrets["supabase"]["key"]
+def get_supabase():
+    url = "https://supabase.co"
+    key = "sb_publishable_AX9owz16md5mxQbmrBTbVw_R8J55ZkR"
+    from supabase import create_client
     return create_client(url, key)
-
 
 # =====================================================================
 # 1) الأمان: تجزئة كلمات المرور والمصادقة
