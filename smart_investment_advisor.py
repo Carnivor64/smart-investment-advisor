@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+import streamlit as st
+from supabase import create_client, Client
+from supabase.lib.client_options import ClientOptions
 """
 Smart Investment Advisor — المستشار المالي الذكي
 ====================================================
