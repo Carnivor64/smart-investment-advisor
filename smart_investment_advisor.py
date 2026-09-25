@@ -49,11 +49,9 @@ st.set_page_config(page_title="Smart Investment Advisor", page_icon="📈", layo
 # لنص SQL الجاهز)، وربط بيانات الاتصال عبر Secrets كما هو موضح في README.md.
 @st.cache_resource
 def get_supabase() -> Client:
-    url = st.secrets["supabase"]["url"]
-    key = st.secrets["supabase"]["key"]
+    url = st.secrets["SUPABASE_URL"]
+    key = st.secrets["SUPABASE_KEY"]
     return create_client(url, key)
-
-
 # =====================================================================
 # 1) الأمان: تجزئة كلمات المرور والمصادقة
 # =====================================================================
